@@ -55,3 +55,32 @@ export const Title = styled.h1`
   text-align: center;
   font-size: 25px;
 `;
+
+Wrapper.Component = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+export const CustomRow = styled.div`
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  background: #bbada0;
+  padding: 4px;
+`;
+
+export const CustomCell = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background: ${props => props.background ? props.background : 'lightgray'};
+  color: white;
+  border-radius: 3px;
+  margin:  0 3px;
+  height: 25px;
+  width: 25px;
+  font-size: 30px;
+`;
