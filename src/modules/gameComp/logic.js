@@ -1,79 +1,41 @@
-export const swipeNumbersLeft = (initialNumbersArr, setInitialNumbers) => {
-  for (let k = 0; k < 4; k++) {
-    let i = 0;
-    for (let j = 1; j < initialNumbersArr[k].length; j++) {
-      if (initialNumbersArr[k][i] === 0 && initialNumbersArr[k][j] !== 0) {
-        initialNumbersArr[k][i] = initialNumbersArr[k][j];
-        initialNumbersArr[k][j] = 0;
-        i++;
-      } else if (initialNumbersArr[k][i] !== 0 && initialNumbersArr[k][j] !== 0) {
-        if (initialNumbersArr[k][i] === initialNumbersArr[k][j]) {
-          initialNumbersArr[k][i] = initialNumbersArr[k][i] + initialNumbersArr[k][j];
-          initialNumbersArr[k][j] = 0;
-          i++;
-        } else {
-          i++;
-        }
-      } else if (initialNumbersArr[k][i] !== 0 && initialNumbersArr[k][j] === 0) {
-        i++;
-      }
-    }
-  }
-  setInitialNumbers(initialNumbersArr);
-};
+let someArr = [];
 
-export const swipeNumbersTop = (initialNumbersArr, setInitialNumbers) => {
+export const swipeNumbersLeftTop = (initialArr, setInitialNumbers, leftSide) => {
   for (let k = 0; k < 4; k++) {
     let i = 0;
     for (let j = 1; j < 4; j++) {
-      if (initialNumbersArr[i][k] === 0 && initialNumbersArr[j][k] !== 0) {
-        initialNumbersArr[i][k] = initialNumbersArr[j][k];
-        initialNumbersArr[j][k] = 0;
+      someArr.push(initialArr[k][i], initialArr[k][j]);
+      let [firstInd, secondInd,  thirdInd, fourthInd] = [
+        leftSide ? k : i, leftSide ? k : j, leftSide ? i : k, leftSide ? j : k
+      ];
+      if (initialArr[firstInd][thirdInd] === 0 && initialArr[secondInd][fourthInd] !== 0) {
+        initialArr[firstInd][thirdInd] = initialArr[secondInd][fourthInd];
+        initialArr[secondInd][fourthInd] = 0;
         i++;
-      } else if (initialNumbersArr[i][k] !== 0 && initialNumbersArr[j][k] !== 0) {
-        if (initialNumbersArr[i][k] === initialNumbersArr[j][k]) {
-          initialNumbersArr[i][k] = initialNumbersArr[i][k] + initialNumbersArr[j][k];
-          initialNumbersArr[j][k] = 0;
+      } else if (initialArr[firstInd][thirdInd] !== 0 && initialArr[secondInd][fourthInd] !== 0) {
+        if (initialArr[firstInd][thirdInd] === initialArr[secondInd][fourthInd]) {
+          initialArr[firstInd][thirdInd] = initialArr[firstInd][thirdInd] + initialArr[secondInd][fourthInd];
+          initialArr[secondInd][fourthInd] = 0;
           i++;
         } else {
           i++;
         }
-      } else if (initialNumbersArr[i][k] !== 0 && initialNumbersArr[j][k] === 0) {
+      } else if (initialArr[firstInd][thirdInd] !== 0 && initialArr[secondInd][fourthInd] === 0) {
         i++;
       }
     }
   }
-  setInitialNumbers(initialNumbersArr);
-};
-
-export const swipeNumbersRight = (initialNumbersArr, setInitialNumbers) => {
-  for (let k = 0; k < 4; k++) {
-    let i = initialNumbersArr[k].length - 1;
-    for (let j = initialNumbersArr[k].length - 2; j >= 0; j--) {
-      if (initialNumbersArr[k][i] === 0 && initialNumbersArr[k][j] !== 0) {
-        initialNumbersArr[k][i] = initialNumbersArr[k][j];
-        initialNumbersArr[k][j] = 0;
-        i--;
-      } else if (initialNumbersArr[k][i] !== 0 && initialNumbersArr[k][j] !== 0) {
-        if (initialNumbersArr[k][i] === initialNumbersArr[k][j]) {
-          initialNumbersArr[k][i] = initialNumbersArr[k][i] + initialNumbersArr[k][j];
-          initialNumbersArr[k][j] = 0;
-          i--;
-        }
-      } else if (initialNumbersArr[k][i] !== 0 && initialNumbersArr[k][j] === 0) {
-        initialNumbersArr[k][j] = initialNumbersArr[k][i];
-        initialNumbersArr[k][j] = 0;
-        i--;
-      }
-    }
-  }
-  setInitialNumbers(initialNumbersArr);
+  setInitialNumbers(initialArr);
+  const isNull = someArr.filter(num => num === 0);
+  someArr = [];
+  return isNull
 };
 
 export const swipeNumbersDown = (initialNumbersArr, setInitialNumbers) => {
   for (let k = 3; k >= 0; k--) {
     let i = 0;
     for (let j = 1; j < 4; j++) {
+      someArr.push(initialNumbersArr[k][i], initialNumbersArr[k][j]);
       if (initialNumbersArr[i][k] === 0 && initialNumbersArr[j][k] !== 0) {
         i++;
       } else if (initialNumbersArr[i][k] !== 0 && initialNumbersArr[j][k] !== 0) {
@@ -92,6 +54,37 @@ export const swipeNumbersDown = (initialNumbersArr, setInitialNumbers) => {
     }
   }
   setInitialNumbers(initialNumbersArr);
+  let isNull = someArr.filter(num => num === 0);
+  someArr = [];
+  return isNull
+};
+
+export const swipeNumbersRight = (initialNumbersArr, setInitialNumbers) => {
+  for (let k = 0; k < 4; k++) {
+    let i = initialNumbersArr[k].length - 1;
+    for (let j = initialNumbersArr[k].length - 2; j >= 0; j--) {
+      someArr.push(initialNumbersArr[k][i], initialNumbersArr[k][j]);
+      if (initialNumbersArr[k][i] === 0 && initialNumbersArr[k][j] !== 0) {
+        initialNumbersArr[k][i] = initialNumbersArr[k][j];
+        initialNumbersArr[k][j] = 0;
+        i--;
+      } else if (initialNumbersArr[k][i] !== 0 && initialNumbersArr[k][j] !== 0) {
+        if (initialNumbersArr[k][i] === initialNumbersArr[k][j]) {
+          initialNumbersArr[k][i] = initialNumbersArr[k][i] + initialNumbersArr[k][j];
+          initialNumbersArr[k][j] = 0;
+          i--;
+        }
+      } else if (initialNumbersArr[k][i] !== 0 && initialNumbersArr[k][j] === 0) {
+        initialNumbersArr[k][j] = initialNumbersArr[k][i];
+        initialNumbersArr[k][j] = 0;
+        i--;
+      }
+    }
+  }
+  setInitialNumbers(initialNumbersArr);
+  let isNull = someArr.filter(num => num === 0);
+  someArr = [];
+  return isNull
 };
 
 export const getColor = (num) => {
