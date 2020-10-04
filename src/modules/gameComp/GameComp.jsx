@@ -1,7 +1,7 @@
 import React, { memo }  from "react";
-import { Wrapper, GlobalStyles, Title, CustomCell, CustomRow } from "./styledComponents";
-import useGameHook from "./useGameHook";
-import { getColor } from "./logic";
+import { Wrapper, GlobalStyles, Title, CustomCell, CustomRow } from "./theme/styledComponents";
+import useGameHook from "./hooks/useGameHook";
+import { getColor } from "./utils/logic";
 
 export const GameComp = memo(() => {
   const { initialNumbers } = useGameHook();
@@ -13,7 +13,7 @@ export const GameComp = memo(() => {
         </Wrapper.Component>
         <Wrapper.Component>
           {initialNumbers.map((row, i) => <CustomRow key={i}>
-              {row.map((number) =>
+              {row.map(number =>
                 <CustomCell background={getColor(number)}>{number !== 0 ? number : ''}</CustomCell>)
               }
             </CustomRow>

@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import { swipeNumbersRight, swipeNumbersDown, swipeNumbersLeftTop } from './logic';
+import { swipeNumbersRight, swipeNumbersDown, swipeNumbersLeftTop } from '../utils/logic';
 
 const useGameHook = () => {
   const initialNumbersArr = [
@@ -40,7 +40,7 @@ const useGameHook = () => {
   }, [initialNumbers]);
 
 
-  const checkIsNoSwipeAvailable = useCallback((isNull, side ) => {
+  const checkIsNoSwipeAvailable = useCallback((isNull, side) => {
     if(isNull.length){
       addRandomNumber()
     } else {
