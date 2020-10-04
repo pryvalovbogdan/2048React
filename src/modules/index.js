@@ -1,0 +1,1 @@
+export { GameComp } from "./gameComp";

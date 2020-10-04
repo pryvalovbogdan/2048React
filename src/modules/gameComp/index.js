@@ -1,1 +1,1 @@
-export { Layout } from './GameComp';
+export { GameComp } from './GameComp';
