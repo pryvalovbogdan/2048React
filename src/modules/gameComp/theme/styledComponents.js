@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from 'styled-components';
 
 const globalFontSize = 16;
 
@@ -63,7 +63,7 @@ Wrapper.Component = styled.div`
 `;
 
 export const CustomRow = styled.div`
-  display: flex; 
+  display: flex;
   align-items: center;
   justify-content: center;
   background: #bbada0;
@@ -75,10 +75,10 @@ export const CustomCell = styled.div`
   align-items: center;
   justify-content: center;
   padding: 15px;
-  background: ${props => props.background ? props.background : 'lightgray'};
+  background: ${props => (props.background ? props.background : 'lightgray')};
   color: white;
   border-radius: 3px;
-  margin:  0 3px;
+  margin: 0 3px;
   height: 25px;
   width: 25px;
   font-size: 30px;

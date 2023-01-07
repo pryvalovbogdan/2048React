@@ -1,1 +1,1 @@
-export { GameComp } from "./gameComp";
+export { GameComp } from './gameComp';

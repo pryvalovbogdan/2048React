@@ -14,12 +14,12 @@ const useGameHook = () => {
   const isEnd = [];
 
   const checkGameOver = useCallback(() => {
-    if(isEnd.length === 4){
-      alert(
-        'end game'
-      );
+    if (isEnd.length === 4) {
+      alert('end game');
+
       setInitialNumbers(initialNumbersArr);
       isEnd.length = 0;
+
       return true;
     }
   }, [isEnd]);
@@ -39,51 +39,60 @@ const useGameHook = () => {
     }
   }, [initialNumbers]);
 
-
   const checkIsNoSwipeAvailable = useCallback((isNull, side) => {
-    if(isNull.length){
-      addRandomNumber()
+    if (isNull.length) {
+      addRandomNumber();
     } else {
       const leftIsENd = isEnd.filter(item => item[side] === 0);
+
       !leftIsENd.length && isEnd.push({ [side]: isNull.length });
     }
   }, []);
 
-  const keyHandleCallback = useCallback(e => {
-    if(checkGameOver()){
-      window.location.reload();
-      return;
-    }
+  const keyHandleCallback = useCallback(
+    e => {
+      if (checkGameOver()) {
+        window.location.reload();
 
-    let isNull = null;
+        return;
+      }
 
-    switch (e.key) {
-      case 'ArrowLeft':
-        isNull = swipeNumbersLeftTop(initialNumbers, setInitialNumbers, true);
-        checkIsNoSwipeAvailable(isNull, 'left');
-        break;
-      case 'ArrowRight':
-        isNull = swipeNumbersRight(initialNumbers, setInitialNumbers);
-        checkIsNoSwipeAvailable(isNull, 'right');
-        break;
-      case 'ArrowUp':
-        isNull = swipeNumbersLeftTop(initialNumbers, setInitialNumbers, false);
-        checkIsNoSwipeAvailable(isNull, 'up');
-        break;
-      case 'ArrowDown':
-        isNull = swipeNumbersDown(initialNumbers, setInitialNumbers);
-        checkIsNoSwipeAvailable(isNull, 'down');
-        break;
-      default:
-        break;
-    }
-  }, [initialNumbers]);
+      let isNull = null;
+
+      switch (e.key) {
+        case 'ArrowLeft':
+          isNull = swipeNumbersLeftTop(initialNumbers, setInitialNumbers, true);
+          checkIsNoSwipeAvailable(isNull, 'left');
+          break;
+
+        case 'ArrowRight':
+          isNull = swipeNumbersRight(initialNumbers, setInitialNumbers);
+          checkIsNoSwipeAvailable(isNull, 'right');
+          break;
+
+        case 'ArrowUp':
+          isNull = swipeNumbersLeftTop(initialNumbers, setInitialNumbers, false);
+          checkIsNoSwipeAvailable(isNull, 'up');
+          break;
+
+        case 'ArrowDown':
+          isNull = swipeNumbersDown(initialNumbers, setInitialNumbers);
+          checkIsNoSwipeAvailable(isNull, 'down');
+          break;
+
+        default:
+          break;
+      }
+    },
+    [initialNumbers],
+  );
 
   useEffect(() => {
     addRandomNumber();
     addRandomNumber();
 
     document.addEventListener('keydown', keyHandleCallback);
+
     return () => {
       document.removeEventListener('keydown', keyHandleCallback);
     };

@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { GameComp } from "./modules";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { GameComp } from './modules';
 
-ReactDOM.render(<GameComp />, document.getElementById("root"));
+ReactDOM.render(<GameComp />, document.getElementById('root'));
