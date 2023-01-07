@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --watch",
-    "build": "sudo webpack --color --progress --mode development",
+    "build": "webpack --color --progress --mode development",
     "lint:fix": "eslint ./src/**/*.js --quiet --fix --color"
   },
   "author": "",
