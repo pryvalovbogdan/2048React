@@ -6,6 +6,10 @@
 
 > 2048 game developed with React library
 
+### To check out the game you can follow this link
+
+* [2048React](https://2048-react-pryvalovbogdan.vercel.app/)
+
 ## Install
 
 ```sh
@@ -15,7 +19,7 @@ npm install
 ## Usage
 
 ```sh
-npm run start
+npm run dev
 ```
 
 ## Run tests
@@ -28,7 +32,7 @@ npm run test
 
 👤 **Pryvalov Bogdan**
 
-* Website: 
+* Website: [@portfolio](https://bogdanpryvalov.com/)
 * Github: [@pryvalovbogdan](https://github.com/pryvalovbogdan)
 * LinkedIn: [@https:\/\/www.linkedin.com\/in\/bogdan-pryvalov-033461195\/](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/bogdan-pryvalov-033461195\/)
 
