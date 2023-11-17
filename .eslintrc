@@ -64,7 +64,6 @@
   "plugins": [
     // e.g. "react" (must run `npm install eslint-plugin-react` first)
     "react",
-    "flowtype",
     "prettier",
     "react-hooks"
   ],
@@ -177,9 +176,6 @@
     "semi": 1                            // require or disallow use of semicolons instead of AS
   },
   "settings": {
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": false
-    },
     "react": {
       "pragma": "React",
       "version": "16.13.1"

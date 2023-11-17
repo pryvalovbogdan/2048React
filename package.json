@@ -1,56 +1,30 @@
 {
-  "name": "reacttimer",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "2048react",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open --watch",
-    "build": "webpack --color --progress --mode development",
-    "lint:fix": "eslint ./src/**/*.js --quiet --fix --color"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/cli": "^7.1.0",
-    "@babel/core": "^7.11.6",
-    "@babel/eslint-parser": "^7.19.1",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/preset-react": "^7.10.4",
-    "babel-loader": "^8.1.0",
-    "clean-webpack-plugin": "^4.0.0",
-    "css-loader": "^1.0.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.7.2",
-    "prettier": "^2.8.2",
-    "style-loader": "^0.23.0",
-    "webpack": "^5.75.0",
-    "webpack-assets-manifest": "^5.1.0",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "dev": "sudo vite --open",
+    "build": "vite build",
+    "lint": "eslint vite-project --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "babel-preset-es2015": "^6.24.1",
-    "file-loader": "^6.1.0",
-    "less": "^3.10.3",
-    "less-loader": "^5.0.0",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
-    "styled-components": "^5.3.6"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.1"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^4.2.0",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "prettier": "^3.1.0",
+    "vite": "^5.0.0"
   }
 }

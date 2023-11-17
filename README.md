@@ -39,5 +39,5 @@ Give a ⭐️ to project if you like it!
 ***
 <p align=center style="background-image: radial-gradient(circle, #cbd250, #61c977, #00b6a5, #009bbf, #247bb5); font-size: 24px; color: black; border-radius: 5px; color: darkblue"><b>Enjoy!</b></p>
 <div align="center">
-<img src="src\game.gif" >
+<img src="assets\game.gif" >
 </div>
